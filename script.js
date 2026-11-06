@@ -399,6 +399,121 @@ function drawField(){
     `;
 }
 
+function moveRed(dir){
+
+    const s=20;
+
+    if(dir==="up") redRobot.y-=s;
+    if(dir==="down") redRobot.y+=s;
+    if(dir==="left") redRobot.x-=s;
+    if(dir==="right") redRobot.x+=s;
+}
+
+function moveBlue(dir){
+
+    const s=20;
+
+    if(dir==="up") blueRobot.y-=s;
+    if(dir==="down") blueRobot.y+=s;
+    if(dir==="left") blueRobot.x-=s;
+    if(dir==="right") blueRobot.x+=s;
+}
+
+function pickBottleRed(){
+    pickBottle(redRobot,redBottles);
+}
+
+function pickBottleBlue(){
+    pickBottle(blueRobot,blueBottles);
+}
+
+function placeBottleRed(){
+    placeBottle(redRobot,"red");
+}
+
+function placeBottleBlue(){
+    placeBottle(blueRobot,"blue");
+}
+
+const weeds=[];
+
+for(let i=0;i<3;i++){
+
+    weeds.push({
+
+        x:680,
+        y:180+i*130,
+        active:true
+
+    });
+}
+
+weeds.forEach(w=>{
+
+    if(!w.active) return;
+
+    ctx.fillStyle="green";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        w.x,
+        w.y,
+        12,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+});
+
+const herbicides=[];
+
+for(let i=0;i<5;i++){
+
+    herbicides.push({
+
+        x:350+i*25,
+        y:120,
+
+        taken:false
+    });
+}
+
+ctx.fillStyle="yellow";
+
+function removeWeed(robot){
+
+    weeds.forEach(w=>{
+
+        if(!w.active) return;
+
+        const d=Math.hypot(
+            robot.x-w.x,
+            robot.y-w.y
+        );
+
+        if(d<40){
+
+            w.active=false;
+        }
+    });
+}
+
+function throwBottle(robot){
+
+    if(robot.carry===0) return;
+
+    robot.carry--;
+
+    const target=findNearestZone(robot);
+
+    if(!target) return;
+
+    target.red=true;
+}
+
+
 //////////////////////////////////////////////////
 
 function loop(){
