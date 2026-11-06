@@ -11,6 +11,51 @@
 <h2>関西春ロボコン2027 シミュレータ</h2>
 
 <canvas id="game" width="1400" height="700"></canvas>
+<div class="controller-row">
+
+    <div class="pad red-pad">
+
+        <h3>赤ロボット</h3>
+
+        <button onclick="moveRed('up')">↑</button>
+
+        <div>
+            <button onclick="moveRed('left')">←</button>
+            <button onclick="moveRed('right')">→</button>
+        </div>
+
+        <button onclick="moveRed('down')">↓</button>
+
+        <hr>
+
+        <button onclick="pickBottleRed()">回収</button>
+        <button onclick="placeBottleRed()">配置</button>
+        <button onclick="throwBottleRed()">投擲</button>
+
+    </div>
+
+    <div class="pad blue-pad">
+
+        <h3>青ロボット</h3>
+
+        <button onclick="moveBlue('up')">↑</button>
+
+        <div>
+            <button onclick="moveBlue('left')">←</button>
+            <button onclick="moveBlue('right')">→</button>
+        </div>
+
+        <button onclick="moveBlue('down')">↓</button>
+
+        <hr>
+
+        <button onclick="pickBottleBlue()">回収</button>
+        <button onclick="placeBottleBlue()">配置</button>
+        <button onclick="throwBottleBlue()">投擲</button>
+
+    </div>
+
+</div>
 
 <div id="info"></div>
 
