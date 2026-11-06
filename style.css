@@ -1,0 +1,15 @@
+body{
+    text-align:center;
+    font-family:sans-serif;
+    background:#f8f8f8;
+}
+
+canvas{
+    background:white;
+    border:3px solid black;
+}
+
+#info{
+    margin-top:15px;
+    font-size:18px;
+}
