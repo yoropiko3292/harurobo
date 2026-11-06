@@ -13,3 +13,30 @@ canvas{
     margin-top:15px;
     font-size:18px;
 }
+.controller-row{
+
+    display:flex;
+    justify-content:space-around;
+    margin-top:20px;
+}
+
+.pad{
+
+    width:250px;
+    padding:15px;
+
+    border:2px solid black;
+    border-radius:10px;
+
+    background:white;
+}
+
+.pad button{
+
+    width:60px;
+    height:50px;
+
+    margin:5px;
+
+    font-size:20px;
+}
